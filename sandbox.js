@@ -4,7 +4,7 @@ const container = document.createElement('div');
 container.setAttribute('id', 'main-body');
 documentBody.appendChild(container);
 
-// create a 16x16 grid of square divs
+// create a default 16x16 grid of square divs
 
 // while loop edition
 let i = 0;
@@ -14,14 +14,22 @@ let i = 0;
 //     container.appendChild(newGrid);
 //     i++;
 // }
-
-
-// for loop edition
+// for loop version of above
 for (i = 0; i < 16*16; i++){
     let newGrid = document.createElement('div');
     newGrid.setAttribute('class', 'grids');
     container.appendChild(newGrid);
-}
+};
+
+// const gridBody = document.querySelectorAll('div' > 'grids'); // one way of doing it
+const gridBody = document.getElementsByClassName('grids'); 
+let grids = Array.from(gridBody); // HTML list unable to iterate so need to convert to Array
+grids.forEach(grid =>{
+    grid.addEventListener('mouseover', () =>{
+        grid.setAttribute('class', 'hovering')
+    });
+});
+ 
 
 
 // Reset button to reset the grid back to original color and to ask user for new input for new grid size
@@ -30,33 +38,22 @@ const gridInput = document.getElementById('gridInput');
 
 resetButton.addEventListener('click', () =>{
     let x = gridInput.value;
-    grids.forEach(grid =>{
-        container.removeChild(grid);
-        // need to change grid
-        container.setAttribute('style', `grid-template-columns: repeat(${x}, 1fr); grid-template-rows: repeat(${x}, 1fr)`)
-    })
-    for (i = 0; i < x*x; i++){
+    documentBody.removeChild(container);
+    newContainer = document.createElement('div');
+    newContainer.setAttribute('id', 'main-body');
+    documentBody.appendChild(newContainer);
+    newContainer.setAttribute('style', `display: grid; grid-template-columns: repeat(${x}, 1fr); grid-template-rows: repeat(${x}, 1fr)`);
+    let j = 0;
+    for (j = 0; j < x*x; j++){
         let newGrid = document.createElement('div');
         newGrid.setAttribute('class', 'grids');
-        container.appendChild(newGrid);
+        newContainer.appendChild(newGrid);
     };
-    
-    grids.forEach(grid =>{
-        grid.setAttribute('class', 'grids');
-    });
-    let grids = Array.from(gridBody);
-});
-
-
-// How to set styles with JavaScript but it gets too long so prefer to set ID and CLASSES and have styles set in styles.CSS
-// container.setAttribute('style', 'display: grid; grid-template-columns: 4; grid-template-rows: 4');
-
-// const gridBody = document.querySelectorAll('div' > 'grids'); // one way of doing it
-const gridBody = document.getElementsByClassName('grids'); 
-let grids = Array.from(gridBody); // HTML list unable to iterate so need to convert to Array
-grids.forEach(grid =>{
-    grid.addEventListener('mouseover', () =>{
-    grid.setAttribute('class', 'hovering')
+    let newGridBody = document.getElementsByClassName('grids');
+    let newGrids = Array.from(newGridBody);
+    newGrids.forEach(grid =>{
+        grid.addEventListener('mouseover', () =>{
+            grid.setAttribute('class', 'hovering')
+        });
     });
 });
- 
