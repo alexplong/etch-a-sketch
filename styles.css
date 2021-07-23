@@ -1,0 +1,22 @@
+body, div#mainbody {
+    margin: 0;
+    padding: 0;
+}
+
+div#main-body {
+    position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    background-color: darkgray;
+}
+
+.grids {
+    position: relative;
+    background-color: black;
+}
+
+.hovering {
+    background-color: white;
+}
