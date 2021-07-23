@@ -1,15 +1,29 @@
-body, div#mainbody {
+body {
+    height: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 200px 200px 1fr;
+    grid-template-rows: 1fr 200px 200px 1fr;
     margin: 0;
     padding: 0;
 }
 
 div#main-body {
     position: relative;
+    grid-column: 2/4;
+    grid-row: 2/4;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     background-color: darkgray;
+}
+
+button {
+    display: grid;
+    grid-column: 2/4;
+    grid-row: 1;
+
 }
 
 .grids {
