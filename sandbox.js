@@ -97,18 +97,34 @@ randomColorButton.addEventListener('click', () =>{
 
 
 
-var frequency = .3;
+// function rgbRandom(){
+//     for (d = 0; d < 32; d++){
+//         let frequency = .3;
+//         red   = Math.sin(frequency*d + 0) * 127 + 128;
+//         green = Math.sin(frequency*d + 2) * 127 + 128;
+//         blue  = Math.sin(frequency*d + 4) * 127 + 128;
+//         colours = `${red},  ${green}, ${blue}`;
+//         console.log(d);
+//         console.log(colours);
+//         return colours;
+//     }
+// };
+
+// fixed rainbow function by changing to a while loop
+let d = 1; 
 function rgbRandom(){
-    for (d = 0; d < 32; d++){
-       red   = Math.sin(frequency*d + 0) * 127 + 128;
-       green = Math.sin(frequency*d + 2) * 127 + 128;
-       blue  = Math.sin(frequency*d + 4) * 127 + 128;
-       colours = `${red},  ${green}, ${blue}`;
-       console.log(d);
-       return colours;
-    //    document.write( '<font color="' + RGB2Color(red,green,blue) + '">&#9608;</font>');
-    }
-}
+    while (d != 0){
+        let frequency = .3;
+        red   = Math.sin(frequency*d + 0) * 127 + 128;
+        green = Math.sin(frequency*d + 2) * 127 + 128;
+        blue  = Math.sin(frequency*d + 4) * 127 + 128;
+        colours = `${red},  ${green}, ${blue}`;
+        console.log(d);
+        console.log(colours);
+        d++;
+        return colours;
+    } 
+};
 
 rainbowButton.addEventListener('click', () =>{
         let x = gridInput.value;
@@ -133,9 +149,9 @@ rainbowButton.addEventListener('click', () =>{
             grid.addEventListener('mouseover', () =>{
                 grid.removeAttribute('class');
                 grid.setAttribute('style', `background-color: rgb(${rgbRandom()})`);
-                })
             })
-        }
+        })
+    }
 );
 
 
