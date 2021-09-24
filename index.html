@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">    
     <script src="sandbox.js" defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +8,16 @@
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div>
-        <input id='gridInput' value=10></input>
-        <button id='resetButton'>RESET</button>
-        <button id='rainbowButton'>TASTE THE RAINBOWS!</button>
+    <div id='pageTitle'>
+        The Etch-a-Sketch Project
     </div>
-
+    
+    <div id='inputContainer'>
+<!--         <input id='gridInput' value=10></input>
+ -->        <input id='mySlider' type='range' min='4' max='45' value='16'>
+            <p>Value: <span id='demo'></span></p>
+        <button id='resetButton'>RESET GRID</button>
+        <button id='rainbowButton'>TASTE THE RAINBOW GRID!</button>
+    </div>
 </body>
 </html>

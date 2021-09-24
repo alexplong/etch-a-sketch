@@ -3,32 +3,45 @@ body {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 200px 200px 1fr;
-    grid-template-rows: 1fr 200px 200px 1fr;
+    grid-template-rows: 1fr 40px 200px 200px 1fr;
     margin: 0;
     padding: 0;
 }
 
 div#main-body {
-    position: relative;
-    grid-column: 2/4;
-    grid-row: 2/4;
-    height: 100%;
     display: grid;
+    grid-column: 2/4;
+    grid-row: 3/5;
+    height: 100%;
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     background-color: darkgray;
 }
 
-button {
+#inputContainer {
     display: grid;
+    height: 100%;
+    width: 100%;
     grid-column: 2/4;
-    grid-row: 1;
+    grid-row: 1/2;
+    justify-self: center;
+    
+}
+
+input {
+    width: 70px;
+    border: 1px solid #dfe1e5;
+    border-radius: 25px;
+    text-align: center;
+}
+
+button {
 
 }
 
 .grids {
     position: relative;
-    background-color: black;
+    background-color: rgb(88, 168, 88);
 }
 
 .hovering {
